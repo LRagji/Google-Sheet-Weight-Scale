@@ -4,6 +4,24 @@ The repo contains Arduino code and reverse engineering experience for Body Compo
 
 ## Decoding UART protocol:
 > This was like decoding Matrix :sunglasses:
+
+### Frame Fromat:(8 bytes)
+|  SOP | Byte 1 | Byte 2  | Byte 3  | Byte 4 | Byte 5 | Byte 6 | Byte 7 |
+|---|---|---|---|---|---|---|---|
+| 0xAC  | x | x | x  | x  | x  | x  | CRC |
+
+### Application Format:(6 bytes)
+| Byte 1 | Byte 2  | Byte 3  | Byte 4 | Byte 5 | Byte 6 |
+|---|---|---|---|---|---|
+| **0x02** Fixed | x | x  | x  | x  | Status Byte **Cx**  |
+
+### Weight Application frame format:(6 bytes)
+| Byte 1 | Byte 2  | Byte 3  | Byte 4 | Byte 5 | Byte 6 |
+|---|---|---|---|---|---|
+| **0x02** Fixed | Weight High-Byte | Weight Low-Byte  | x  | x  | **CA** Weighing Completed  |
+| **0x02** Fixed | Weight High-Byte | Weight Low-Byte  | x  | x  | **CE** Weighing On-going  |
+
+### Example:
 #### Weight frame decoding
 00 <-Series of 8 Sync byte 0  
 00 <-Sync byte 1  
@@ -45,3 +63,6 @@ The repo contains Arduino code and reverse engineering experience for Body Compo
 02 FB 00 00 00 CB C6  
 02 FA 00 01 02 CB C8  
 02 FE 10 00 00 CC DA  
+
+
+
