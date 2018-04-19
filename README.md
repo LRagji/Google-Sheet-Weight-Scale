@@ -1,6 +1,8 @@
-# Google-Sheet-Weight-Scale
+# Google-Sheet-Weight-Scale Hack
 The repo contains Arduino code and reverse engineering experience for Body Composition Scale and how to hook up the same onto google sheet
 [Check out the Wiki for more details](https://github.com/LRagji/Google-Sheet-Weight-Scale/wiki)
+
+![Scale Product Image](https://github.com/LRagji/Google-Sheet-Weight-Scale/blob/master/scale.jpeg)
 
 ## Decoding UART protocol:
 > This was like decoding Matrix :sunglasses:
